@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from 'src/app/seervices/api.service';
+import { ApiService } from 'src/app/services/api.service';
 import { Blog } from 'src/models/Blog';
 
 

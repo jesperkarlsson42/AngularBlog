@@ -8,13 +8,11 @@ import { Blog } from 'src/models/Blog';
 })
 export class ApiService {
 
-  private 
-
   constructor(private http: HttpClient) { 
 
   }
 
   postBlog(blog: Blog): Observable<Blog> {
-   return this.http.post('https://mi-blogs.azurewebsites.net/api/Blogs/', blog);
+    return this.http.post<Blog>('https://mi-blogs.azurewebsites.net/api/Blogs/', blog);
   }
 }
