@@ -16,7 +16,7 @@ postTitle: string = '';
     this.getParams();
     let idPost = this.postId;
 
-    this.service.getPosts().subscribe(data => {
+    this.service.posts$.subscribe(data => {
       console.log(data);
       for (let i = 0; i < data.length; i++) {
         if (data[i].id == idPost) {

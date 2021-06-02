@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Blog } from 'src/models/Blog';
 import { Comments } from 'src/models/Comments';
 import { Post } from 'src/models/Posts';
 import { ActivatedRoute } from '@angular/router';
 import { PostService } from 'src/app/services/post.service';
+import { NgForm } from '@angular/forms';
 @Component({
   selector: 'app-create-posts',
   templateUrl: './create-posts.component.html',
@@ -28,7 +28,7 @@ export class CreatePostsComponent implements OnInit {
     });
   }
 
-  onSubmit(data): void {
+  onSubmit(data: NgForm): void {
     this.postTitle = data.value.postTitle;
     this.content = data.value.content;
 
@@ -42,13 +42,7 @@ export class CreatePostsComponent implements OnInit {
       comments: [],
     };
 
-    console.log(newPost);
-    
 
-    this.service.createPost(newPost).subscribe((data) => {
-      this.posts.push(data);
-      console.log(data);
-      
-    });
+    this.service.createPost(newPost);
   }
 }
