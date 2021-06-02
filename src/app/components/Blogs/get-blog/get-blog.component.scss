@@ -1,0 +1,36 @@
+.get-blogs-container {
+    margin-top: 120px;
+    display: flex;
+    justify-content: center;  
+    flex-wrap: wrap;
+}
+
+
+.blog-category {
+    width: 45%;
+    background: #8338ec;
+    display: flex;
+    flex-direction: column;
+    margin: 5px;
+    height: 75px;
+    border-radius: 25px;
+    justify-content: center;
+    align-items: center;
+}
+
+.blog-category:hover {
+    p {
+        color: #ff006e;
+        z-index: 3;
+    }
+}
+
+.title-text {
+    font-family: 'Chela One', cursive;
+    font-size: 24px;
+    font-weight: 700;
+    color: #fb5607;
+    z-index: 1;
+    
+}
+

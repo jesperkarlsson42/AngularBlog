@@ -1,0 +1,5 @@
+<div class="get-blogs-container">
+  <div *ngFor="let b of blogs" class="blog-category" routerLink="/blogs/{{b.id}}">
+    <p class="title-text">{{ b.title }}</p>
+  </div>
+</div>

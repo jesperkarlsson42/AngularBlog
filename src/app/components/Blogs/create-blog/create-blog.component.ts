@@ -31,6 +31,7 @@ export class CreateBlogComponent implements OnInit {
 
 
    }
+   console.log(newBlog)
 
    this.service.postBlog(newBlog).subscribe((blog) => this.blogs.push(blog));
   }
