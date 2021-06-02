@@ -14,11 +14,12 @@ export class GetBlogComponent implements OnInit {
   constructor(private service: ApiService) { }
 
   ngOnInit() {
-    this.service.getBlogs().subscribe(data => {
+    this.service.blogs$.subscribe(data => {
       console.log(data);
-      this.blogs= data
+      this.blogs = data
       
-    })
+    });
+    this.service.getBlogs();
   }
 
 

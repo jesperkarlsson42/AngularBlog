@@ -1,5 +1,9 @@
 <div class="container">
   <p>{{ blogTitle }}</p>
+  <button type="button" (click)="delete()">Delete</button>
   <app-create-posts></app-create-posts>
-  <app-get-posts></app-get-posts>
+  <div class="postsContainer">
+    <app-get-posts></app-get-posts>
+  </div>
+  
 </div>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from 'src/app/services/api.service';
 
 @Component({
@@ -11,13 +11,13 @@ export class PostsComponent implements OnInit {
   blogId: number = 0;
   blogTitle: string = "";
 
-  constructor(private route: ActivatedRoute, private service: ApiService) { }
+  constructor(private route: ActivatedRoute, private service: ApiService, private router: Router) { }
 
   ngOnInit() {
     this.getParams();
     let idBlog = this.blogId;
 
-    this.service.getBlogs().subscribe(data => {
+    this.service.blogs$.subscribe(data => {
       console.log(data);
       for (let i = 0; i < data.length; i++) {
         if (data[i].id == idBlog) {
@@ -32,6 +32,13 @@ export class PostsComponent implements OnInit {
     this.route.paramMap.subscribe((params) => {
       this.blogId = parseInt(params.get('id'));
       
+    })
+  }
+
+  delete() {
+    this.service.deleteBlog(this.blogId).subscribe(data => {
+        console.log('deleted');
+        this.router.navigate(['/'])
     })
   }
 

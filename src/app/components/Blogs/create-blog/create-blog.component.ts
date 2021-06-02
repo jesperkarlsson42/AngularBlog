@@ -1,4 +1,6 @@
+import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { ApiService } from 'src/app/services/api.service';
 import { Blog } from 'src/models/Blog';
 
@@ -12,14 +14,14 @@ export class CreateBlogComponent implements OnInit {
   blogTitle: string = "";
   blogs: Blog[] = [];
   
-  constructor(private service: ApiService) {
+  constructor(private service: ApiService, private location: Location ) {
 
    }
 
   ngOnInit(): void {
   }
 
-  onSubmit(data): void {
+  onSubmit(data : NgForm){
    this.blogTitle = data.value.newBlog;
 
    let newBlog : Blog = {
@@ -29,11 +31,11 @@ export class CreateBlogComponent implements OnInit {
     userId: 1337,
     posts: []
 
-
    }
    console.log(newBlog)
 
-   this.service.postBlog(newBlog).subscribe((blog) => this.blogs.push(blog));
+   this.service.postBlog(newBlog);
+   
   }
 
 }
