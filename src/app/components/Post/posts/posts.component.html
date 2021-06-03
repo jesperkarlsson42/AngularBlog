@@ -1,9 +1,14 @@
 <div class="container">
-  <p>{{ blogTitle }}</p>
+  <p>{{ blog.title }}</p>
   <button type="button" (click)="delete()">Delete</button>
+  <form (ngSubmit)="edit(input, blog)">
+    <input type="text" value="{{ blog.title }}" #input/>
+    <button type="submit">Edit</button>
+  </form>
+  
   <app-create-posts></app-create-posts>
   <div class="postsContainer">
-    <app-get-posts></app-get-posts>
+    <app-get-posts [posts]="blog.posts"></app-get-posts>
   </div>
   
 </div>

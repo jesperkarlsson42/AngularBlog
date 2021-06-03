@@ -15,7 +15,7 @@ export class GetCommentsComponent implements OnInit {
 
   ngOnInit(): void {
     this.getParams();
-    this.service.getComments().subscribe(data => {
+    this.service.comments$.subscribe(data => {
      
       for(let i = 0; i < data.length; i++) {
         
@@ -27,7 +27,8 @@ export class GetCommentsComponent implements OnInit {
         }
       }
       
-     })
+     });
+     this.service.getComments();
   }
 
   getParams() {

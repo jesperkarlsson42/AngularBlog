@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { PostService } from 'src/app/services/post.service';
 import { Post } from 'src/models/Posts';
 import { ActivatedRoute } from '@angular/router';
@@ -9,23 +9,24 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./get-posts.component.scss'],
 })
 export class GetPostsComponent implements OnInit {
-  posts: Post[] = [];
+  
   postId: number = 0;
 
   constructor(private service: PostService, private route: ActivatedRoute) {}
+  @Input() posts: Post[]
 
   ngOnInit() {
-    this.getParams();
-    this.service.posts$.subscribe((data) => {
+    // this.getParams();
+    // this.service.posts$.subscribe((data) => {
 
-      for (let i = 0; i < data.length; i++) {
-        if (data[i].blogId === this.postId) {
-          let p = data[i];
-          this.posts.push(p);
-        }
-      }
-    });
-    this.service.getPosts();
+    //   for (let i = 0; i < data.length; i++) {
+    //     if (data[i].blogId === this.postId) {
+    //       let p = data[i];
+    //       this.posts.push(p);
+    //     }
+    //   }
+    // });
+    // this.service.getPosts();
   }
 
   // loadPost() {

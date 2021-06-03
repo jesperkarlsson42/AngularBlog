@@ -13,6 +13,7 @@ import { GetPostsComponent } from './components/Post/get-posts/get-posts.compone
 import { CreateCommentsComponent } from './components/Comments/create-comments/create-comments.component';
 import { SinglePostComponent } from './components/Post/single-post/single-post.component';
 import { GetCommentsComponent } from './components/Comments/get-comments/get-comments.component';
+import { EditBlogComponent } from './components/Blogs/edit-blog/edit-blog.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { GetCommentsComponent } from './components/Comments/get-comments/get-com
     GetPostsComponent,
     CreateCommentsComponent,
     SinglePostComponent,
-    GetCommentsComponent
+    GetCommentsComponent,
+    EditBlogComponent
   ],
   imports: [
     BrowserModule,

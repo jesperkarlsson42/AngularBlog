@@ -32,10 +32,7 @@ export class CreateCommentsComponent implements OnInit {
 
     console.log(newComment);
 
-    this.service.createComment(newComment).subscribe((comment) => {
-      this.comments.push(comment);
-      console.log(comment);
-    });
+    this.service.createComment(newComment);
   }
   getParams() {
     this.route.paramMap.subscribe((params) => {

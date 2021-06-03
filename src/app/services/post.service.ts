@@ -18,8 +18,9 @@ export class PostService {
 
   createPost(post: Post): void {
     this.http.post<Post>(this.blogUrl, post).subscribe(post => {
-      this.posts.push(post);
+      this.posts = [...this.posts, post];
       this.postSubject.next(this.posts);
+      
     })
   }
 
@@ -28,5 +29,9 @@ export class PostService {
       this.posts = post;
       this.postSubject.next(this.posts);
     });
+  }
+
+  deletePost(postId: number) {
+    return this.http.delete('https://mi-blogs.azurewebsites.net/api/Posts/' + postId)
   }
 }

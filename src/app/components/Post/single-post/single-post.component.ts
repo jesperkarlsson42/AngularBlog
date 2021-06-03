@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { PostService } from 'src/app/services/post.service';
 
 @Component({
@@ -10,7 +10,7 @@ import { PostService } from 'src/app/services/post.service';
 export class SinglePostComponent implements OnInit {
 postId: number = 0;
 postTitle: string = '';
-  constructor(private route: ActivatedRoute, private service: PostService) { }
+  constructor(private route: ActivatedRoute, private service: PostService, private router: Router) { }
 
   ngOnInit(): void {
     this.getParams();
@@ -30,6 +30,13 @@ postTitle: string = '';
   getParams() {
     this.route.paramMap.subscribe((params) => {
       this.postId = parseInt(params.get('id'));
+      
+    })
+  }
+  delete() {
+    this.service.deletePost(this.postId).subscribe(data => {
+      console.log('post raderad' + data);
+      // this.router.navigate(['/blogs/']);
       
     })
   }
