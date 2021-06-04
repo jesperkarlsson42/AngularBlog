@@ -19,7 +19,7 @@ export class CreatePostsComponent implements OnInit {
   constructor(private route: ActivatedRoute, private service: PostService) {}
 
   ngOnInit(): void {
-  this.getParams();
+    this.getParams();
   }
 
   getParams() {
@@ -41,7 +41,6 @@ export class CreatePostsComponent implements OnInit {
       blogId: this.blogId,
       comments: [],
     };
-
 
     this.service.createPost(newPost);
   }

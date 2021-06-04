@@ -1,6 +1,7 @@
+import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ApiService } from 'src/app/services/api.service';
+
 import { PostService } from 'src/app/services/post.service';
 import { Post } from 'src/models/Posts';
 
@@ -16,8 +17,7 @@ export class SinglePostComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private service: PostService,
-    private router: Router,
-    private blogService: ApiService
+    private location: Location
   ) {}
 
   ngOnInit(): void {
@@ -26,13 +26,11 @@ export class SinglePostComponent implements OnInit {
 
     this.service.getPost(idPost).subscribe((data) => {
       this.post = data;
-      console.log(data);
     });
 
     this.service.posts$.subscribe((post) => {
       this.service.getPost(idPost).subscribe((data) => {
         this.post = data;
-        console.log(data);
       });
     });
   }
@@ -44,8 +42,7 @@ export class SinglePostComponent implements OnInit {
   }
   delete() {
     this.service.deletePost(this.postId).subscribe((data) => {
-      console.log('post raderad' + data);
-      // this.router.navigate(['/blogs/']);
+      this.location.back();
     });
   }
 
@@ -54,6 +51,6 @@ export class SinglePostComponent implements OnInit {
 
     this.service.editPost(post).subscribe((data) => {
       this.service.getPosts();
-    })
+    });
   }
 }

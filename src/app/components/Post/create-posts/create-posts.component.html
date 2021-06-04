@@ -1,11 +1,13 @@
 <form #createPost="ngForm" (ngSubmit)="onSubmit(createPost)" class="form">
   <div class="create-post">
+    <label>Create new post:</label>
     <input
       type="text"
       name="postTitle"
       [(ngModel)]="postTitle"
       class="input"
       placeholder="title"
+      minlength="1"
     />
     <input
       type="text"
@@ -13,6 +15,7 @@
       [(ngModel)]="content"
       class="input"
       placeholder="content"
+      minlength="1"
     />
     <button type="submit" class="btn">Done<i class="fas fa-check"></i></button>
   </div>

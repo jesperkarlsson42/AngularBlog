@@ -1,4 +1,4 @@
-import { Location } from '@angular/common';
+
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ApiService } from 'src/app/services/api.service';
@@ -14,7 +14,7 @@ export class CreateBlogComponent implements OnInit {
   blogTitle: string = "";
   blogs: Blog[] = [];
   
-  constructor(private service: ApiService, private location: Location ) {
+  constructor(private service: ApiService) {
 
    }
 
@@ -32,7 +32,7 @@ export class CreateBlogComponent implements OnInit {
     posts: []
 
    }
-   console.log(newBlog)
+   
 
    this.service.postBlog(newBlog);
    

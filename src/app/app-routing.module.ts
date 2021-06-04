@@ -4,6 +4,7 @@ import { CreateBlogComponent } from './components/Blogs/create-blog/create-blog.
 import { EditBlogComponent } from './components/Blogs/edit-blog/edit-blog.component';
 import { GetBlogComponent } from './components/Blogs/get-blog/get-blog.component';
 import { LandingpageComponent } from './components/landingpage/landingpage.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 import { PostsComponent } from './components/Post/posts/posts.component';
 import { SinglePostComponent } from './components/Post/single-post/single-post.component';
 
@@ -13,7 +14,8 @@ const routes: Routes = [
   {path: 'get-blogs', component: GetBlogComponent},
   {path: 'blogs/:id', component: PostsComponent},
   {path: 'post/:id', component: SinglePostComponent},
-  {path: '', component: LandingpageComponent}
+  {path: '', component: LandingpageComponent},
+  {path: '**', component: NotFoundComponent}
 ];
 
 @NgModule({

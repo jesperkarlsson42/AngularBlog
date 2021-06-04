@@ -10,6 +10,7 @@ input {
 .create-post {
     display: flex;
     flex-direction: column;
+    text-align: center;
 }
 
 .btn {
@@ -24,4 +25,9 @@ input {
 .btn:hover {
     cursor: pointer;
     border: 1px solid green;
+}
+
+label {
+    color: #fff;
+    font-family: 'Chela One', cursive;
 }

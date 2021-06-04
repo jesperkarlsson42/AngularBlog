@@ -25,18 +25,8 @@ export class EditBlogComponent implements OnInit {
   });
   }
 
-  onSubmit(data: NgForm, activeBlog : Blog) {
+  onSubmit(data: NgForm) {
     this.activeBlog.title = data.value;
-
-    // let newBlog: Blog = {
-    //   id: 0,
-    //   title: this.blogTitle,
-    //   created: new Date(),
-    //   userId: 1337,
-    //   posts: [],
-    // };
-    // console.log(newBlog);
-   
   }
 
   getParams() {

@@ -1,11 +1,14 @@
-<div *ngIf="post">
+<div class="page-container">
+  <div *ngIf="post" class="actions">
     <form (ngSubmit)="edit(input, post)">
-        <input type="text" value="{{ post.title }}" #input/>
-        <button type="submit">Edit</button>
-      </form>
-   <button type="button" (click)="delete()">delete</button>
-   <p *ngIf="post">{{post.title}}</p>
+      <input type="text" value="{{ post.title }}" #input />
+      <button type="submit" class="btn"><i class="fas fa-edit"></i></button>
+    </form>
+    <button type="button" (click)="delete()" class="btn"><i class="fas fa-trash"></i></button>
+  </div>
+  <div class="container">
+    <p *ngIf="post">{{ post.title }}</p>
+    <app-create-comments></app-create-comments>
+    <app-get-comments></app-get-comments>
+  </div>
 </div>
-
-<app-create-comments></app-create-comments>
-<app-get-comments></app-get-comments>

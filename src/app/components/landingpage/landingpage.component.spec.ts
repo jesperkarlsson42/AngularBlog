@@ -20,7 +20,7 @@ describe('LandingpageComponent', () => {
     h1 = fixture.nativeElement.querySelector('h1');
   });
 
-  it('should say BLOGG', () => {
-    expect(h1.textContent).toContain('BLOGG');
+  it('should say BLOG', () => {
+    expect(h1.textContent).toContain('BLOG');
   });
 });

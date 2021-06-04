@@ -30,7 +30,6 @@ export class CreateCommentsComponent implements OnInit {
       postId: this.postId,
     };
 
-    console.log(newComment);
 
     this.service.createComment(newComment);
   }
