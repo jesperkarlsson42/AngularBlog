@@ -21,7 +21,6 @@ export class GetCommentsComponent implements OnInit {
         
         if(data[i].postId === this.postId) {
            let c = data[i];
-           console.log(c);
            this.comments.push(c);
            
         }

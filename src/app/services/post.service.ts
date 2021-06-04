@@ -24,14 +24,23 @@ export class PostService {
     })
   }
 
-  getPosts(): void {
+  getPosts(): void{
     this.http.get<Post[]>(this.blogUrl).subscribe(post => {
       this.posts = post;
       this.postSubject.next(this.posts);
     });
   }
 
+  getPost(idPost): Observable<Post> {
+    return this.http.get<Post>(`${this.blogUrl}/${idPost}`);
+  }
+
   deletePost(postId: number) {
     return this.http.delete('https://mi-blogs.azurewebsites.net/api/Posts/' + postId)
+  }
+
+  editPost(post : Post): Observable<Post> {
+    return this.http.put<Post>('https://mi-blogs.azurewebsites.net/api/Posts/' + post.id, post)
+
   }
 }

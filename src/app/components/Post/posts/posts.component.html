@@ -1,14 +1,21 @@
 <div class="container">
-  <p>{{ blog.title }}</p>
-  <button type="button" (click)="delete()">Delete</button>
-  <form (ngSubmit)="edit(input, blog)">
-    <input type="text" value="{{ blog.title }}" #input/>
-    <button type="submit">Edit</button>
-  </form>
-  
+  <p *ngIf="blog"  class="h1">{{ blog.title }}</p>
+
+  <div *ngIf="blog" class="actions">
+    <form (ngSubmit)="edit(input, blog)">
+      <label for="input" class="label">Edit blogtitle:</label>
+      <div>
+        <input type="text" value="{{ blog.title }}" #input />
+        <button class="btn" type="submit"><i class="fas fa-edit"></i></button>
+        <button class="btn" type="button" (click)="delete()">
+          <i class="fas fa-trash"></i>
+        </button>
+      </div>
+    </form>
+  </div>
+
   <app-create-posts></app-create-posts>
   <div class="postsContainer">
     <app-get-posts [posts]="blog.posts"></app-get-posts>
   </div>
-  
 </div>

@@ -1,43 +1,59 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ApiService } from 'src/app/services/api.service';
 import { PostService } from 'src/app/services/post.service';
+import { Post } from 'src/models/Posts';
 
 @Component({
   selector: 'app-single-post',
   templateUrl: './single-post.component.html',
-  styleUrls: ['./single-post.component.scss']
+  styleUrls: ['./single-post.component.scss'],
 })
 export class SinglePostComponent implements OnInit {
-postId: number = 0;
-postTitle: string = '';
-  constructor(private route: ActivatedRoute, private service: PostService, private router: Router) { }
+  postId: number = 0;
+  postTitle: string = '';
+  post: Post;
+  constructor(
+    private route: ActivatedRoute,
+    private service: PostService,
+    private router: Router,
+    private blogService: ApiService
+  ) {}
 
   ngOnInit(): void {
     this.getParams();
     let idPost = this.postId;
 
-    this.service.posts$.subscribe(data => {
+    this.service.getPost(idPost).subscribe((data) => {
+      this.post = data;
       console.log(data);
-      for (let i = 0; i < data.length; i++) {
-        if (data[i].id == idPost) {
-          this.postTitle = data[i].title;
-        }
-      }
-      
-    })
+    });
+
+    this.service.posts$.subscribe((post) => {
+      this.service.getPost(idPost).subscribe((data) => {
+        this.post = data;
+        console.log(data);
+      });
+    });
   }
 
   getParams() {
     this.route.paramMap.subscribe((params) => {
       this.postId = parseInt(params.get('id'));
-      
-    })
+    });
   }
   delete() {
-    this.service.deletePost(this.postId).subscribe(data => {
+    this.service.deletePost(this.postId).subscribe((data) => {
       console.log('post raderad' + data);
       // this.router.navigate(['/blogs/']);
-      
+    });
+  }
+
+  edit(input, post: Post) {
+    post.title = input.value;
+
+    this.service.editPost(post).subscribe((data) => {
+      this.service.getPosts();
     })
   }
 }

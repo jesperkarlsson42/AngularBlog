@@ -1,0 +1,27 @@
+input {
+    border-radius: 25px;
+    border: 1px solid #fff;
+    margin: 5px;
+    text-align: center;
+    padding: 0px;
+    
+}
+
+.create-post {
+    display: flex;
+    flex-direction: column;
+}
+
+.btn {
+    border-radius: 25px;
+    background-color: #fff;
+    border: 1px solid #fff;
+    color: green;
+    padding: 0;
+    margin: 5px;
+}
+
+.btn:hover {
+    cursor: pointer;
+    border: 1px solid green;
+}

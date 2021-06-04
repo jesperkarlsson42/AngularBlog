@@ -5,6 +5,7 @@ import { LandingpageComponent } from './landingpage.component';
 describe('LandingpageComponent', () => {
   let component: LandingpageComponent;
   let fixture: ComponentFixture<LandingpageComponent>;
+  let h1: HTMLElement;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -16,10 +17,10 @@ describe('LandingpageComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(LandingpageComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
+    h1 = fixture.nativeElement.querySelector('h1');
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  it('should say BLOGG', () => {
+    expect(h1.textContent).toContain('BLOGG');
   });
 });

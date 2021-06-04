@@ -8,7 +8,9 @@
 
 .blog-category {
     width: 45%;
-    background: #8338ec;
+    background: #3a86ff;
+    border: 2px solid #fff;
+    box-shadow: 2px 2px 5px #fff;
     display: flex;
     flex-direction: column;
     margin: 5px;
@@ -20,7 +22,7 @@
 
 .blog-category:hover {
     p {
-        color: #ff006e;
+        color: #fff;
         z-index: 3;
     }
 }

@@ -1,5 +1,19 @@
-<form #createPost="ngForm" (ngSubmit)=onSubmit(createPost) class="form" >
-    <input type="text" name="postTitle" [(ngModel)]="postTitle" class="input" placeholder="title"/>
-    <input type="text" name="content" [(ngModel)]="content" class="input" placeholder="content"/>
-    <button type="submit" class="btn">Klar</button>
+<form #createPost="ngForm" (ngSubmit)="onSubmit(createPost)" class="form">
+  <div class="create-post">
+    <input
+      type="text"
+      name="postTitle"
+      [(ngModel)]="postTitle"
+      class="input"
+      placeholder="title"
+    />
+    <input
+      type="text"
+      name="content"
+      [(ngModel)]="content"
+      class="input"
+      placeholder="content"
+    />
+    <button type="submit" class="btn">Done<i class="fas fa-check"></i></button>
+  </div>
 </form>

@@ -1,5 +1,11 @@
+<div *ngIf="post">
+    <form (ngSubmit)="edit(input, post)">
+        <input type="text" value="{{ post.title }}" #input/>
+        <button type="submit">Edit</button>
+      </form>
+   <button type="button" (click)="delete()">delete</button>
+   <p *ngIf="post">{{post.title}}</p>
+</div>
 
-<button type="button" (click)="delete()">delete</button>
-<p>{{postTitle}}</p>
 <app-create-comments></app-create-comments>
 <app-get-comments></app-get-comments>
